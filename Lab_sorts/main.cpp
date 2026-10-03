@@ -17,12 +17,14 @@ int main(){
             }
             
             auto t1=std::chrono::steady_clock::now();
-            insert_sort(my_array,N);
+            sort_select(my_array, N);
             auto t2=std::chrono::steady_clock::now();
 
             result_time += std::chrono::duration<double>(t2-t1).count();
+            std :: cout << is_sort(my_array, N);
         }
 
         std::cout << N <<": Time " << result_time/K << '\n';
+
     }
 }

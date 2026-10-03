@@ -7,5 +7,6 @@ bool is_sort(int array[], int n);
 
 void buble_sort (int array[], int n);
 void insert_sort(int array[], int n);
+void sort_select(int array[], int n);
 
 #endif
