@@ -17,7 +17,7 @@ int main(){
             }
             
             auto t1=std::chrono::steady_clock::now();
-            sort_select(my_array, N);
+            merge_sort(my_array, N, 0, N-1);
             auto t2=std::chrono::steady_clock::now();
 
             result_time += std::chrono::duration<double>(t2-t1).count();

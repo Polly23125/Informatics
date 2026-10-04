@@ -15,7 +15,7 @@ bool is_sort(int array[], int n){
     return true;
 }
 
-void insert(int array[], int n, int cur, int index){
+void insert(int array[], int n, int cur, int index){ //индексация оносительно всего массива
     int i = n-2;
     while (i > index){
         if (array[i] == cur){
@@ -26,6 +26,6 @@ void insert(int array[], int n, int cur, int index){
             array[i+1] = array [i];
         }
         --i;
-    array[index] = cur;
     }
+    array[index] = cur;
 }
