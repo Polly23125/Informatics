@@ -1,6 +1,7 @@
 #include "header.h"
 #include <chrono> 
 #include <random> 
+#include <iostream>
 
 
 int rand_uns(int min, int max) { 
@@ -109,4 +110,112 @@ int partition(int array[], int end, int pivot){
         }    
     }
     return pivot;
+}
+
+double init_rand_sort1(int K, int N, int test_array[], void (*func)(int array[], int)){
+    double result_time;
+    for (int k = 0; k < K; k++){
+            
+            for (int i = 0; i < N; i++){
+            test_array[i] = rand_uns(0, 1000000);
+            }
+            
+            auto t1=std::chrono::steady_clock::now();
+            func(test_array, N);
+            auto t2=std::chrono::steady_clock::now();
+
+            result_time += std::chrono::duration<double>(t2-t1).count();
+            std :: cout << is_sort(test_array, N) << ' ';
+        }
+    return result_time/K;
+}
+
+double init_rand_sort2(int K, int N, int test_array[], void (*func)(int array[], int, int)){
+    double result_time;
+    for (int k = 0; k < K; k++){
+            
+            for (int i = 0; i < N; i++){
+            test_array[i] = rand_uns(0, 1000000);
+            }
+            
+            auto t1=std::chrono::steady_clock::now();
+            func(test_array, 0, N-1);
+            auto t2=std::chrono::steady_clock::now();
+
+            result_time += std::chrono::duration<double>(t2-t1).count();
+            std :: cout << is_sort(test_array, N) << ' ';
+        }
+    return result_time/K;
+}
+
+double init_best_sort1(int K, int N, int test_array[], void (*func)(int array[], int)){
+    double result_time;
+    for (int k = 0; k < K; k++){
+            
+            for (int i = 0; i < N; i++){
+            test_array[i] = i;
+            }
+            
+            auto t1=std::chrono::steady_clock::now();
+            func(test_array, N);
+            auto t2=std::chrono::steady_clock::now();
+
+            result_time += std::chrono::duration<double>(t2-t1).count();
+            std :: cout << is_sort(test_array, N) << ' ';
+        }
+    return result_time/K;
+}
+
+double init_best_sort2(int K, int N, int test_array[], void (*func)(int array[], int, int)){
+    double result_time;
+    for (int k = 0; k < K; k++){
+            
+            for (int i = 0; i < N; i++){
+            test_array[i] = i;
+            }
+            
+            auto t1=std::chrono::steady_clock::now();
+            func(test_array, 0, N-1);
+            auto t2=std::chrono::steady_clock::now();
+
+            result_time += std::chrono::duration<double>(t2-t1).count();
+            std :: cout << is_sort(test_array, N) << ' ';
+        }
+    return result_time/K;
+}
+
+double init_worse_sort1(int K, int N, int test_array[], void (*func)(int array[], int)){
+    double result_time;
+    for (int k = 0; k < K; k++){
+            
+            for (int i = 0; i < N; i++){
+            test_array[i] = N-i;
+            }
+            
+            auto t1=std::chrono::steady_clock::now();
+            func(test_array, N);
+            auto t2=std::chrono::steady_clock::now();
+
+            result_time += std::chrono::duration<double>(t2-t1).count();
+            std :: cout << is_sort(test_array, N) << ' ';
+        }
+    return result_time/K;
+}
+
+double init_worse_sort2(int K, int N, int test_array[], void (*func)(int array[], int, int)){
+    double result_time;
+    for (int k = 0; k < K; k++){
+            
+            for (int i = 0; i < N; i++){
+            test_array[i] = N-i;
+            }
+            
+            auto t1=std::chrono::steady_clock::now();
+            func(test_array, 0, N-1);
+            auto t2=std::chrono::steady_clock::now();
+
+            result_time += std::chrono::duration<double>(t2-t1).count();
+            std :: cout << is_sort(test_array, N) << ' ';
+        }
+    return result_time/K;
 }
