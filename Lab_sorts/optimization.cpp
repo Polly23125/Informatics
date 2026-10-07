@@ -22,7 +22,7 @@ int main(){
             }
             
             auto select_t1=std::chrono::steady_clock::now();
-            select_sort(test_array, N);
+            merge_sort(test_array, 0, N-1);
             auto select_t2=std::chrono::steady_clock::now();
 
             select_time += std::chrono::duration<double>(select_t2-select_t1).count();
