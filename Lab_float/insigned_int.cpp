@@ -3,8 +3,15 @@
 #include <chrono>
 #include "header.h"
 
+union fu{
+float f; 
+unsigned int b;
+};
+
 int main(){
-    float a;
-    std :: cin >> a;
-    float_to_binar(a);
+    unsigned int a = 89;
+    fu c;
+    std :: cin >> a >> c.f;
+    binary(a);
+    binary(c.b);
 }
