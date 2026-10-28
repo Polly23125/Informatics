@@ -6,7 +6,7 @@ int main(){
     std :: ofstream f("value_of_pi.csv", std :: ios::out);
     f << "Iter" << "," << "Leibniz" << "," << "BBP" << "," << "Sqrt" << "," << "Nil" << "," << "Wallis"<< std :: endl;
     
-    for (int i = 1; i < 70; i++){
+    for (int i = 1; i < 1000; i++){
         float pi_leibniz_num = pi_leibniz(i);
         float pi_bbp_num = pi_BBP(i);
         float pi_sqrt_num = pi_sqrt(i);

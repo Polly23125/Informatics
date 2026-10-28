@@ -93,7 +93,7 @@ float pi_wallis(int N) {
 }
 
 float pi_error(float value){
-    float error = value - 3.141592653589793;
+    float error = std::abs(value - 3.141592653589793);
     return error;
 }
 
@@ -108,7 +108,7 @@ double pi_accur (float accuracy, float (*func)(int)){
         error = pi_error(pi);
     }
     auto t1 = std::chrono::steady_clock::now();
-        for (int i = 0; i < 1000000; i++){
+        for (int i = 0; i < 100; i++){
             func(n);
         }
     auto t2 = std::chrono::steady_clock::now();
