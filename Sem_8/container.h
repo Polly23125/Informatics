@@ -14,7 +14,7 @@ public:
     }
 
     ~Journal(){
-        std :: cout << "Deleted elements: " << capacity_+size_ <<'\n';
+        std :: cout << "Deleted elements: " << capacity_+size_  <<'\n';
         delete[] data_;
     }
 
