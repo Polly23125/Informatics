@@ -24,6 +24,12 @@ struct Block_16384 {
     char data[16384]; 
 };
 
+struct mem{
+    int counter = 0;
+    int copys = 0;
+    int elem = 0;
+};
+
 unsigned char text_short(const Text text);
 unsigned char text_short_link(const Text& text);
 unsigned char text_short_pointer(const Text* text);
@@ -106,4 +112,10 @@ void borrow(const Text text, int k);
 void copy_each(const Text text, int k);
 void copy_once(const Text text, int k);
 double repeat (const Text text, int k, void (*func)(const Text, int), int G, int repeats);
+
+mem borrow_mem(const Text text, int k);
+mem copy_each_mem(const Text text, int k);
+mem copy_once_mem(const Text text, int k);
+mem repeat_mem (const Text text, int k, mem (*func)(const Text, int), int G);
+
 #endif

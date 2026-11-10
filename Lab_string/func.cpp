@@ -483,6 +483,56 @@ double repeat (const Text text, int k, void (*func)(const Text, int), int G, int
     return seconds/(repeats * G * k);
 }
 
+mem borrow_mem(const Text text, int k){
+    for (int i = 0; i < k; ++i){
+        analyze(text);
+    }
+    return {0,0,0};
+}
+
+mem copy_each_mem(const Text text, int k){
+    int counter;
+    int copys;
+    int elem;
+    for (int i = 0; i < k; ++i){
+        char* copy = clone_text(text);
+        counter += 1;
+        analyze({copy, text.size});
+        copys += text.size - 1;
+        elem = text.size;
+        delete[] copy;
+    }
+    return {counter, copys, elem};
+}
+
+mem copy_once_mem(const Text text, int k){
+    int counter;
+    int copys;
+    int elem;
+    char* copy = clone_text(text);
+    copys += text.size - 1;
+    counter++;
+    elem = text.size;
+    for (int i = 0; i < k; ++i){
+        analyze({copy, text.size});
+    }
+    delete[] copy;
+    return {counter, copys, elem};
+}
+
+mem repeat_mem (const Text text, int k, mem (*func)(const Text, int), int G){
+    int counter;
+    int copys;
+    int elem;
+    for (int i = 0; i < G; ++i) {
+        mem a = func(text, k);
+        counter += a.counter;
+        copys += a.copys;
+        elem = a.elem;
+    }
+    return {counter, copys, elem};
+}
+
 
 
 
