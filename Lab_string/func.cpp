@@ -140,7 +140,7 @@ int read_from_file (const std :: string filename, std :: string& all_text){
         line += '\n';
         all_text += line;
         Stats row = analyze({line.c_str(), line.size()});
-        std::cout << row.words << ' ' << row.checksum << '\n';
+        //std::cout << row.words << ' ' << row.checksum << '\n';
     }
     return input.bad() ? 1 : 0;
 }
@@ -153,7 +153,7 @@ double pass_number(int a, int repeats){
     }
     auto finish = std::chrono::steady_clock::now();
     double seconds = std::chrono::duration<double>(finish - start).count();
-    return seconds;
+    return seconds/repeats;
 }
 
 double pass_number_link(int a, int repeats){
@@ -165,7 +165,7 @@ double pass_number_link(int a, int repeats){
     }
     auto finish = std::chrono::steady_clock::now();
     double seconds = std::chrono::duration<double>(finish - start).count();
-    return seconds;
+    return seconds/repeats;
 }
 
 double pass_number_pointer(int a, int repeats){
@@ -177,7 +177,7 @@ double pass_number_pointer(int a, int repeats){
     }
     auto finish = std::chrono::steady_clock::now();
     double seconds = std::chrono::duration<double>(finish - start).count();
-    return seconds;
+    return seconds/repeats;
 }
 
 double pass_block_16_short(const Block_16 text, int repeats){
@@ -188,7 +188,7 @@ double pass_block_16_short(const Block_16 text, int repeats){
     }
     auto finish = std::chrono::steady_clock::now();
     double seconds = std::chrono::duration<double>(finish - start).count();
-    return seconds;
+    return seconds/repeats;
 }
 
 double pass_block_16_short_link(const Block_16 text, int repeats){
@@ -200,7 +200,7 @@ double pass_block_16_short_link(const Block_16 text, int repeats){
     }
     auto finish = std::chrono::steady_clock::now();
     double seconds = std::chrono::duration<double>(finish - start).count();
-    return seconds;
+    return seconds/repeats;
 }
 
 double pass_block_16_short_pointer(const Block_16 text, int repeats){
@@ -212,7 +212,7 @@ double pass_block_16_short_pointer(const Block_16 text, int repeats){
     }
     auto finish = std::chrono::steady_clock::now();
     double seconds = std::chrono::duration<double>(finish - start).count();
-    return seconds;
+    return seconds/repeats;
 }
 
 double pass_block_1024_short(const Block_1024 text, int repeats){
@@ -223,7 +223,7 @@ double pass_block_1024_short(const Block_1024 text, int repeats){
     }
     auto finish = std::chrono::steady_clock::now();
     double seconds = std::chrono::duration<double>(finish - start).count();
-    return seconds;
+    return seconds/repeats;
 }
 
 double pass_block_1024_short_link(const Block_1024 text, int repeats){
@@ -235,7 +235,7 @@ double pass_block_1024_short_link(const Block_1024 text, int repeats){
     }
     auto finish = std::chrono::steady_clock::now();
     double seconds = std::chrono::duration<double>(finish - start).count();
-    return seconds;
+    return seconds/repeats;
 }
 
 double pass_block_1024_short_pointer(const Block_1024 text, int repeats){
@@ -247,7 +247,7 @@ double pass_block_1024_short_pointer(const Block_1024 text, int repeats){
     }
     auto finish = std::chrono::steady_clock::now();
     double seconds = std::chrono::duration<double>(finish - start).count();
-    return seconds;
+    return seconds/repeats;
 }
 
 double pass_block_16384_short(const Block_16384 text, int repeats){
@@ -258,7 +258,7 @@ double pass_block_16384_short(const Block_16384 text, int repeats){
     }
     auto finish = std::chrono::steady_clock::now();
     double seconds = std::chrono::duration<double>(finish - start).count();
-    return seconds;
+    return seconds/repeats;
 }
 
 double pass_block_16384_short_link(const Block_16384 text, int repeats){
@@ -270,7 +270,7 @@ double pass_block_16384_short_link(const Block_16384 text, int repeats){
     }
     auto finish = std::chrono::steady_clock::now();
     double seconds = std::chrono::duration<double>(finish - start).count();
-    return seconds;
+    return seconds/repeats;
 }
 
 double pass_block_16384_short_pointer(const Block_16384 text, int repeats){
@@ -282,7 +282,7 @@ double pass_block_16384_short_pointer(const Block_16384 text, int repeats){
     }
     auto finish = std::chrono::steady_clock::now();
     double seconds = std::chrono::duration<double>(finish - start).count();
-    return seconds;
+    return seconds/repeats;
 }
 
 double pass_block_16_full(const Block_16 text, int repeats){
@@ -292,7 +292,7 @@ double pass_block_16_full(const Block_16 text, int repeats){
     }
     auto finish = std::chrono::steady_clock::now();
     double seconds = std::chrono::duration<double>(finish - start).count();
-    return seconds;
+    return seconds/repeats;
 }
 
 double pass_block_16_full_link(const Block_16 text, int repeats){
@@ -303,7 +303,7 @@ double pass_block_16_full_link(const Block_16 text, int repeats){
     }
     auto finish = std::chrono::steady_clock::now();
     double seconds = std::chrono::duration<double>(finish - start).count();
-    return seconds;
+    return seconds/repeats;
 }
 
 double pass_block_16_full_pointer(const Block_16 text, int repeats){
@@ -314,7 +314,7 @@ double pass_block_16_full_pointer(const Block_16 text, int repeats){
     }
     auto finish = std::chrono::steady_clock::now();
     double seconds = std::chrono::duration<double>(finish - start).count();
-    return seconds;
+    return seconds/repeats;
 }
 
 double pass_block_1024_full(const Block_1024 text, int repeats){
@@ -324,7 +324,7 @@ double pass_block_1024_full(const Block_1024 text, int repeats){
     }
     auto finish = std::chrono::steady_clock::now();
     double seconds = std::chrono::duration<double>(finish - start).count();
-    return seconds;
+    return seconds/repeats;
 }
 
 double pass_block_1024_full_link(const Block_1024 text, int repeats){
@@ -335,7 +335,7 @@ double pass_block_1024_full_link(const Block_1024 text, int repeats){
     }
     auto finish = std::chrono::steady_clock::now();
     double seconds = std::chrono::duration<double>(finish - start).count();
-    return seconds;
+    return seconds/repeats;
 }
 
 double pass_block_1024_full_pointer(const Block_1024 text, int repeats){
@@ -346,7 +346,7 @@ double pass_block_1024_full_pointer(const Block_1024 text, int repeats){
     }
     auto finish = std::chrono::steady_clock::now();
     double seconds = std::chrono::duration<double>(finish - start).count();
-    return seconds;
+    return seconds/repeats;
 }
 
 double pass_block_16384_full(const Block_16384 text, int repeats){
@@ -356,7 +356,7 @@ double pass_block_16384_full(const Block_16384 text, int repeats){
     }
     auto finish = std::chrono::steady_clock::now();
     double seconds = std::chrono::duration<double>(finish - start).count();
-    return seconds;
+    return seconds/repeats;
 }
 
 double pass_block_16384_full_link(const Block_16384 text, int repeats){
@@ -367,7 +367,7 @@ double pass_block_16384_full_link(const Block_16384 text, int repeats){
     }
     auto finish = std::chrono::steady_clock::now();
     double seconds = std::chrono::duration<double>(finish - start).count();
-    return seconds;
+    return seconds/repeats;
 }
 
 double pass_block_16384_full_pointer(const Block_16384 text, int repeats){
@@ -378,7 +378,7 @@ double pass_block_16384_full_pointer(const Block_16384 text, int repeats){
     }
     auto finish = std::chrono::steady_clock::now();
     double seconds = std::chrono::duration<double>(finish - start).count();
-    return seconds;
+    return seconds/repeats;
 }
 
 double pass_text_short(const Text text, int repeats){
@@ -389,7 +389,7 @@ double pass_text_short(const Text text, int repeats){
     }
     auto finish = std::chrono::steady_clock::now();
     double seconds = std::chrono::duration<double>(finish - start).count();
-    return seconds;
+    return seconds/repeats;
 }
 
 double pass_text_short_link(const Text text, int repeats){
@@ -401,7 +401,7 @@ double pass_text_short_link(const Text text, int repeats){
     }
     auto finish = std::chrono::steady_clock::now();
     double seconds = std::chrono::duration<double>(finish - start).count();
-    return seconds;
+    return seconds/repeats;
 }
 
 double pass_text_short_pointer(const Text text, int repeats){
@@ -413,7 +413,7 @@ double pass_text_short_pointer(const Text text, int repeats){
     }
     auto finish = std::chrono::steady_clock::now();
     double seconds = std::chrono::duration<double>(finish - start).count();
-    return seconds;
+    return seconds/repeats;
 }
 
 double pass_text_full(const Text text, int repeats){
@@ -423,7 +423,7 @@ double pass_text_full(const Text text, int repeats){
     }
     auto finish = std::chrono::steady_clock::now();
     double seconds = std::chrono::duration<double>(finish - start).count();
-    return seconds;
+    return seconds/repeats;
 }
 
 double pass_text_full_link(const Text text, int repeats){
@@ -434,7 +434,7 @@ double pass_text_full_link(const Text text, int repeats){
     }
     auto finish = std::chrono::steady_clock::now();
     double seconds = std::chrono::duration<double>(finish - start).count();
-    return seconds;
+    return seconds/repeats;
 }
 
 double pass_text_full_pointer(const Text text, int repeats){
@@ -445,7 +445,42 @@ double pass_text_full_pointer(const Text text, int repeats){
     }
     auto finish = std::chrono::steady_clock::now();
     double seconds = std::chrono::duration<double>(finish - start).count();
-    return seconds;
+    return seconds/repeats;
+}
+
+void borrow(const Text text, int k){
+    for (int i = 0; i < k; ++i){
+        analyze(text);
+    }
+}
+
+void copy_each(const Text text, int k){
+    for (int i = 0; i < k; ++i){
+        char* copy = clone_text(text);
+        analyze({copy, text.size});
+        delete[] copy;
+    }
+}
+
+void copy_once(const Text text, int k){
+    char* copy = clone_text(text);
+    for (int i = 0; i < k; ++i){
+        analyze({copy, text.size});
+    }
+    delete[] copy;
+}
+
+double repeat (const Text text, int k, void (*func)(const Text, int), int G, int repeats){
+    double seconds;
+    for (int j = 0; j < repeats; ++j){
+        auto start = std::chrono::steady_clock::now();
+        for (int i = 0; i < G; ++i) {
+            func(text, k);
+        }
+        auto finish = std::chrono::steady_clock::now();
+        seconds += std::chrono::duration<double>(finish - start).count();
+    }
+    return seconds/(repeats * G * k);
 }
 
 

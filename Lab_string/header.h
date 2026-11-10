@@ -13,7 +13,7 @@ struct Stats {
 };
 
 struct Block_16 {
-    char data[16]; 
+    char data[16];
 };
 
 struct Block_1024 {
@@ -102,5 +102,8 @@ double pass_text_full(const Text text, int repeats);
 double pass_text_full_link(const Text text, int repeats);
 double pass_text_full_pointer(const Text text, int repeats);
 
-
+void borrow(const Text text, int k);
+void copy_each(const Text text, int k);
+void copy_once(const Text text, int k);
+double repeat (const Text text, int k, void (*func)(const Text, int), int G, int repeats);
 #endif

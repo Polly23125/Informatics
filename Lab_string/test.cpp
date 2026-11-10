@@ -5,5 +5,6 @@
 
 int main(){
     std :: string filename = "3.txt";
-    int a = read_from_file(filename);
+    std :: string str;
+    int a = read_from_file(filename,str);
 }
