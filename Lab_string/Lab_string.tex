@@ -171,10 +171,39 @@ top=20mm, headsep=10mm, headheight=14pt]{geometry}
 	\end{table}
 	
 	\subsubsection*{Объяснение результатов}
+	С использованием оптимизаций разница в результатах больше похожа на случайный разброс
 	
 	\Section{Исследование работы с памятью}
 	\subsection*{Предположение}
+	
+	\begin{table}[h]
+		\centering
+		\label{tab:predict}
+		\begin{tabular}{|l|r|r|r|}
+			\hline
+			\textbf{mode} & \textbf{allocations} & \textbf{copied\_bytes} & \textbf{extra\_bytes} \\
+			\hline
+			borrow     & 0     & 0     & 0        \\
+			\hline
+			copy\_each & \( k \cdot G\)  &  \((L-1) \cdot G \cdot k\) & \(L\)    \\
+			\hline
+			copy\_once & \(G\)    &  \((L-1) \cdot G\)     &   \(L\)  \\
+			\hline
+			
+		\end{tabular}
+		\caption{Предсказание результатов}
+	\end{table}
+	
 	\subsection*{Методика}
+	
+	Исследование проводилось с помощью вспомогательной структуры \(mem\) и функции
+	
+	\begin{figure}[h!] 
+		\centering
+		\includegraphics[width=0.7\textwidth]{method3.png}
+		\label{fig:model3}
+	\end{figure}
+	
 	\subsection*{Результаты}
 	
 	\begin{table}[h]
@@ -184,38 +213,37 @@ top=20mm, headsep=10mm, headheight=14pt]{geometry}
 			\hline
 			\textbf{length} & \textbf{mode} & \textbf{repeats} & \textbf{uses} & \textbf{allocations} & \textbf{copied\_bytes} & \textbf{extra\_bytes} \\
 			\hline
-			15     & borrow     & k=1 G=100      & 1   & 0     & 0         & 0     \\
-			1023   & borrow     & k=1 G=100      & 1   & 0     & 0         & 0     \\
-			16383  & borrow     & k=1 G=100      & 1   & 0     & 0         & 0     \\
-			15     & copy\_each & k=1 G=100      & 1   & 100   & 1500      & 16    \\
-			1023   & copy\_each & k=1 G=100      & 1   & 100   & 102300    & 1024  \\
-			16383  & copy\_each & k=1 G=100      & 1   & 100   & 1638300   & 16384 \\
-			15     & copy\_once & k=1 G=100      & 1   & 100   & 1500      & 16    \\
-			1023   & copy\_once & k=1 G=100      & 1   & 100   & 102300    & 1024  \\
-			16383  & copy\_once & k=1 G=100      & 1   & 100   & 1638300   & 16384 \\
+			15     & borrow     & 100      & 1   & 0     & 0         & 0     \\
+			1023   & borrow     & 100      & 1   & 0     & 0         & 0     \\
+			16383  & borrow     & 100      & 1   & 0     & 0         & 0     \\
+			15     & copy\_each & 100      & 1   & 100   & 1500      & 16    \\
+			1023   & copy\_each & 100      & 1   & 100   & 102300    & 1024  \\
+			16383  & copy\_each & 100      & 1   & 100   & 1638300   & 16384 \\
+			15     & copy\_once & 100      & 1   & 100   & 1500      & 16    \\
+			1023   & copy\_once & 100      & 1   & 100   & 102300    & 1024  \\
+			16383  & copy\_once & 100      & 1   & 100   & 1638300   & 16384 \\
 			\hline
-			15     & borrow     & k=10 G=100     & 10  & 0     & 0         & 0     \\
-			1023   & borrow     & k=10 G=100     & 10  & 0     & 0         & 0     \\
-			16383  & borrow     & k=10 G=100     & 10  & 0     & 0         & 0     \\
-			15     & copy\_each & k=10 G=100     & 10  & 1000  & 15000     & 16    \\
-			1023   & copy\_each & k=10 G=100     & 10  & 1000  & 1023000   & 1024  \\
-			16383  & copy\_each & k=10 G=100     & 10  & 1000  & 16383000  & 16384 \\
-			15     & copy\_once & k=10 G=100     & 10  & 100   & 1500      & 16    \\
-			1023   & copy\_once & k=10 G=100     & 10  & 100   & 102300    & 1024  \\
-			16383  & copy\_once & k=10 G=100     & 10  & 100   & 1638300   & 16384 \\
+			15     & borrow     & 100      & 10  & 0     & 0         & 0     \\
+			1023   & borrow     & 100      & 10  & 0     & 0         & 0     \\
+			16383  & borrow     & 100      & 10  & 0     & 0         & 0     \\
+			15     & copy\_each & 100      & 10  & 1000  & 15000     & 16    \\
+			1023   & copy\_each & 100      & 10  & 1000  & 1023000   & 1024  \\
+			16383  & copy\_each & 100      & 10  & 1000  & 16383000  & 16384 \\
+			15     & copy\_once & 100      & 10  & 100   & 1500      & 16    \\
+			1023   & copy\_once & 100      & 10  & 100   & 102300    & 1024  \\
+			16383  & copy\_once & 100      & 10  & 100   & 1638300   & 16384 \\
 			\hline
-			15     & borrow     & k=100 G=100    & 100 & 0     & 0         & 0     \\
-			1023   & borrow     & k=100 G=100    & 100 & 0     & 0         & 0     \\
-			16383  & borrow     & k=100 G=100    & 100 & 0     & 0         & 0     \\
-			15     & copy\_each & k=100 G=100    & 100 & 10000 & 150000    & 16    \\
-			1023   & copy\_each & k=100 G=100    & 100 & 10000 & 10230000  & 1024  \\
-			16383  & copy\_each & k=100 G=100    & 100 & 10000 & 163830000 & 16384 \\
-			15     & copy\_once & k=100 G=100    & 100 & 100  & 1500      & 16    \\
-			1023   & copy\_once & k=100 G=100    & 100 & 100  & 102300    & 1024  \\
-			16383  & copy\_once & k=100 G=100    & 100 & 100  & 1638300   & 16384 \\
+			15     & borrow     & 100      & 100 & 0     & 0         & 0     \\
+			1023   & borrow     & 100      & 100 & 0     & 0         & 0     \\
+			16383  & borrow     & 100      & 100 & 0     & 0         & 0     \\
+			15     & copy\_each & 100      & 100 & 10000 & 150000    & 16    \\
+			1023   & copy\_each & 100      & 100 & 10000 & 10230000  & 1024  \\
+			16383  & copy\_each & 100      & 100 & 10000 & 163830000 & 16384 \\
+			15     & copy\_once & 100      & 100 & 100  & 1500      & 16    \\
+			1023   & copy\_once & 100      & 100 & 100  & 102300    & 1024  \\
+			16383  & copy\_once & 100      & 100 & 100  & 1638300   & 16384 \\
 			\hline
 		\end{tabular}
-		\caption{Результаты работы с памятью}
 	\end{table}
 	
 	\subsection*{Объяснение результатов}

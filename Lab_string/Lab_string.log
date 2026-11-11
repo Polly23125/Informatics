@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.9.7)  11 NOV 2026 01:08
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.9.7)  11 NOV 2026 11:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -759,15 +759,21 @@ Overfull \hbox (24.00003pt too wide) in paragraph at lines 160--171
  []
 
 
-Overfull \hbox (3.34073pt too wide) in paragraph at lines 183--218
- [][] 
- []
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<method3.png, id=370, 607.068pt x 218.0145pt>
+File: method3.png Graphic file (type png)
+<use method3.png>
+Package pdftex.def Info: method3.png  used on input line 203.
+(pdftex.def)             Requested size: 338.58632pt x 121.59492pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[3 <./method2.png> <./Items_copy.pdf> <./Repeating_copy.pdf>] [4]
-(Lab_string.aux)
+[3 <./method2.png> <./Items_copy.pdf> <./Repeating_copy.pdf>] [4 <./method3.png
+>] [5] (Lab_string.aux)
  ***********
 LaTeX2e <2026-06-01>
 L3 programming layer <2026-08-10>
@@ -778,10 +784,10 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 8068 strings out of 467440
- 136354 string characters out of 5417659
- 573083 words of memory out of 5000000
- 37239 multiletter control sequences out of 15000+600000
+ 8077 strings out of 467440
+ 136504 string characters out of 5417659
+ 572190 words of memory out of 5000000
+ 37248 multiletter control sequences out of 15000+600000
  638862 words of font info for 66 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  67i,13n,77p,423b,526s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -793,10 +799,12 @@ jfour/lh/lh-t2a/dpi600\labx1728.pk> <C:\Users\Полина\AppData\Local\MiKTeX
 ocal\MiKTeX\fonts/pk/ljfour/lh/lh-t2a/dpi600\labx2488.pk> <C:\Users\Полин�
 �\AppData\Local\MiKTeX\fonts/pk/ljfour/lh/lh-t2a/dpi600\larm2488.pk> <C:\Users\
 Полина\AppData\Local\MiKTeX\fonts/pk/ljfour/lh/lh-t2a/dpi600\larm1440.pk>
-
-Output written on Lab_string.pdf (5 pages, 328655 bytes).
+<C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program 
+Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX/
+fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on Lab_string.pdf (6 pages, 379355 bytes).
 PDF statistics:
- 747 PDF objects out of 1000 (max. 8388607)
+ 772 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 71 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 76 words of extra memory for PDF output out of 10000 (max. 10000000)
 
