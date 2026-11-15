@@ -23,10 +23,10 @@ unsigned char block_16_short(const Block_16 text){
     return c;
 }
 unsigned char block_16_short_link(const Block_16& text){
-    return block_16_short (text);
+    return text.data[0];
 }
 unsigned char block_16_short_pointer(const Block_16* text){
-    return block_16_short (*text);
+    return text->data[0];
 }
 
 unsigned char block_1024_short(const Block_1024 text){
@@ -34,10 +34,10 @@ unsigned char block_1024_short(const Block_1024 text){
     return c;
 }
 unsigned char block_1024_short_link(const Block_1024& text){
-    return block_1024_short (text);
+    return text.data[0];
 }
 unsigned char block_1024_short_pointer(const Block_1024* text){
-    return block_1024_short (*text);
+    return text->data[0];
 }
 
 unsigned char block_16384_short(const Block_16384 text){
@@ -45,10 +45,10 @@ unsigned char block_16384_short(const Block_16384 text){
     return c;
 }
 unsigned char block_16384_short_link(const Block_16384& text){
-    return block_16384_short (text);
+    return text.data[0];
 }
 unsigned char block_16384_short_pointer(const Block_16384* text){
-    return block_16384_short (*text);
+    return text->data[0];
 }
 
 Stats analyze(const Text text) {
