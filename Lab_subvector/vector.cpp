@@ -1,11 +1,9 @@
 #include <iostream>
-#include <chrono>
-#include <cstddef>
 #include "header.h"
 
-bool Subvector::push_back_10 (int value){
+bool Subvector::push_back_plus (int value, int step){
     if (capacity_ <= size_){
-        capacity_ +=10;
+        capacity_ += step;
         int* data_tmp = new int[capacity_];
         for (unsigned int i = 0; i < size_; i++){
             data_tmp[i] = data_[i];
@@ -18,54 +16,9 @@ bool Subvector::push_back_10 (int value){
     return true;
 }
 
-bool Subvector::push_back_100 (int value){
+bool Subvector::push_back_multiply (int value, int myltiplier){
     if (capacity_ <= size_){
-        capacity_ +=100;
-        int* data_tmp = new int[capacity_];
-        for (unsigned int i = 0; i < size_; i++){
-            data_tmp[i] = data_[i];
-        }
-        delete[] data_;
-        data_ = data_tmp;
-    }
-    data_ [size_] = value;
-    size_ ++;
-    return true;
-}
-
-bool Subvector::push_back_15 (int value){
-    if (capacity_ <= size_){
-        capacity_ *= 1.5;
-        int* data_tmp = new int[capacity_];
-        for (unsigned int i = 0; i < size_; i++){
-            data_tmp[i] = data_[i];
-        }
-        delete[] data_;
-        data_ = data_tmp;
-    }
-    data_ [size_] = value;
-    size_ ++;
-    return true;
-}
-
-bool Subvector::push_back_2 (int value){
-    if (capacity_ <= size_){
-        capacity_ *= 2;
-        int* data_tmp = new int[capacity_];
-        for (unsigned int i = 0; i < size_; i++){
-            data_tmp[i] = data_[i];
-        }
-        delete[] data_;
-        data_ = data_tmp;
-    }
-    data_ [size_] = value;
-    size_ ++;
-    return true;
-}
-
-bool Subvector::push_back_3 (int value){
-    if (capacity_ <= size_){
-        capacity_ *= 3;
+        capacity_ *= myltiplier;
         int* data_tmp = new int[capacity_];
         for (unsigned int i = 0; i < size_; i++){
             data_tmp[i] = data_[i];

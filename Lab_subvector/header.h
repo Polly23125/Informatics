@@ -1,10 +1,18 @@
 #ifndef HEADER_H
 #define HEADER_H
+#include <vector>
+struct Time
+{
+    double data[10];
+};
+
 
 class Subvector{
     unsigned int size_ = 0; //количество элементов
     unsigned int capacity_ = 0; //количество выделенной памяти
     int* data_ = nullptr;
+
+public:
 
     Subvector(unsigned int capacity){
         capacity_ = capacity;
@@ -19,11 +27,8 @@ class Subvector{
         delete[] data_;
     }
 
-    bool push_back_10 (int value);
-    bool push_back_100 (int value);
-    bool push_back_2 (int value);
-    bool push_back_15 (int value);
-    bool push_back_3 (int value);
+    bool push_back_plus (int value, int step);
+    bool push_back_multiply (int value, int myltiplier);
 
     int pop_back();
 
@@ -33,6 +38,11 @@ class Subvector{
 
     void clear(); 
 };
+
+double get_time();
+Time init_add_subvector_plus (unsigned int repeat, const int delta[], const int& size);
+Time init_add_subvector_myltiply (unsigned int repeat, const int delta[], const int& size);
+double init_add_vector (unsigned int repeat);
 
 
 #endif
